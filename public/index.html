@@ -1,0 +1,1973 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LS811PSS3V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LS811PSS3V');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICloude | Next-Gen Cloud Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <script src="https://js.stripe.com/v3/"></script>  
+   <!-- Existing meta tags -->
+    <meta name="description" content="AICloude - Get free AI-optimized cloud storage with military-grade security. Store & manage files securely with 2GB free storage. Perfect for individuals and businesses. Start your free trial today!">
+    <meta name="keywords" content="free cloud storage, AI cloud storage, secure file hosting, business cloud solutions, affordable cloud storage, online file management">
+    <meta name="author" content="AICloude Team">
+
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+             position: relative;
+            width: 100%;
+            z-index: 1000;
+        }
+
+#dashboard {
+margin-top:150px;
+    padding: 2rem 0;
+        background: rgba(0, 0, 0, 0.3);
+display:none;
+}
+
+
+/* Add to your CSS */
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.half-width {
+  flex: 1;
+}
+/* Add to existing styles */
+.integration-manager {
+  margin-bottom: 2rem;
+}
+
+.data-tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.tool-card {
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.share-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+#shareLink {
+  flex: 1;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #00ff88;
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: #fff;
+}
+
+.integration-btn {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.integration-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.google { background: #4285f4; }
+.github { background: #333; }
+.webdav { background: #00b4d8; }
+.api { background: #666; }
+
+/* Add to existing styles */
+.StripeElement {
+  background: rgba(255,255,255,0.1) !important;
+  color: #fff !important;
+  padding: 1rem !important;
+  border: 1px solid #00ff88 !important;
+  border-radius: 5px !important;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.25) !important;
+}
+
+.StripeElement--invalid {
+  border-color: #ff4444 !important;
+}
+
+.StripeElement::-webkit-input-placeholder {
+  color: #888 !important;
+}
+
+
+ #verificationModal input[type="text"] {
+            width: 100%;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #00ff88;
+            border-radius: 5px;
+            color: #fff;
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 0.5rem;
+        }
+        
+        #resendOtpText {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        #resendOtpText span {
+            color: #00ff88;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+/* Add to existing styles */
+#storageWarningModal {
+    text-align: center;
+    background: #1a1a2e;
+    border: 2px solid #ff4444;
+}
+
+#storageWarningModal h2 {
+    color: #ff4444;
+    margin-bottom: 1rem;
+}
+
+#storageWarningModal p {
+    margin-bottom: 1.5rem;
+}
+
+/* Add to existing styles */
+#uploadProgressContainer {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+#uploadStatus {
+    color: #00ff88;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Delete Button - Force Override Existing Styles */
+.file-actions .delete-btn {
+    padding: 6px 12px !important;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b) !important;
+    color: white !important;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 8px;
+    box-shadow: 0 2px 6px rgba(255, 65, 108, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.file-actions .delete-btn:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 4px 12px rgba(255, 65, 108, 0.5);
+}
+
+.file-actions .delete-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.file-actions .delete-btn:hover::after {
+    opacity: 1;
+}
+
+/* Download Button */
+.file-actions .download-btn {
+    padding: 6px 12px;
+    background: rgba(0, 255, 136, 0.15);
+    border: 1px solid #00ff88;
+    border-radius: 8px;
+    color: #00ff88;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.file-actions .download-btn:hover {
+    background: rgba(0, 255, 136, 0.3);
+    transform: translateY(-2px);
+}
+
+.storage-meter-container {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.storage-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+#storageUpgradeBtn {
+  background: linear-gradient(45deg, #00ff88, #00b4d8);
+  color: #1a1a2e;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+  z-index: 100;
+  position: relative;
+}
+
+#storageUpgradeBtn:hover {
+  transform: scale(1.05);
+}
+
+#storageUpgradeBtn.hidden {
+  display: none !important;
+}
+
+    .buy-btn:hover {
+        background: #00ff88;
+        color: #1a1a2e;
+    }
+
+    .meter-bar {
+        height: 10px;
+        border-radius: 5px;
+        background: linear-gradient(45deg, #00ff88, #00b4d8);
+    }
+
+
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.file-card {
+  background: rgba(255,255,255,0.05);
+  padding: 1.25rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.file-action-btn {
+  background: none;
+  border: none;
+  color: #00ff88;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.storage-warning {
+  color: #ff4444;
+  margin: 1rem 0;
+  display: none;
+}
+.resource-details {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .instances-container {
+        margin-top: 1.5rem;
+    }
+
+    .instance-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+    }
+
+.dashboard-nav {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.dashboard-nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.dashboard-nav-link:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.dashboard-nav-link.active {
+    background: linear-gradient(45deg, #00ff88, #00b4d8);
+    color: #1a1a2e;
+    font-weight: bold;
+}
+
+.dashboard-section {
+    padding: 2rem;
+    background: rgba(0,0,0,0.3);
+    border-radius: 15px;
+    margin-top: 1rem;
+}
+
+
+
+
+/* Add these styles */
+    #headerDashboard {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 1rem;
+        border-top: 2px solid #00ff88;
+    }
+
+    .header-dashboard-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-metric {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(255,255,255,0.1);
+        border-radius: 8px;
+    }
+
+    .header-account {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+
+
+
+.storage-meter, .usage-meter {
+    background: rgba(255,255,255,0.1);
+    height: 20px;
+    border-radius: 10px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.meter-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(45deg, #00ff88, #00b4d8);
+    transition: width 0.5s ease;
+}
+
+.meter-text {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.account-info {
+    list-style: none;
+    padding: 0;
+}
+
+.account-info li {
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stripe-card-input {
+    padding: 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    margin: 0.5rem 0;
+}
+
+/* Add new styles */
+    .auth-forms {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            z-index: 1001;
+            width: 90%;
+            max-width: 400px;
+        }
+
+       .auth-active .auth-overlay {
+            display: block;
+        }
+
+   .pricing-section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ff88, #00b4d8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            color: #ccc;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #00ff88, #00b4d8);
+            color: #1a1a2e;
+        }
+
+        .pricing-card.featured .features-list i {
+            color: #1a1a2e;
+        }
+
+        .pricing-header {
+            margin-bottom: 2rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .period {
+            font-size: 1rem;
+            color: #888;
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00ff88;
+            color: #1a1a2e;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .price-comparison {
+            margin-top: 4rem;
+            background: rgba(0,0,0,0.3);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 4rem auto 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .comparison-grid > div {
+            padding: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+ .error-message {
+            color: #ff4444;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+
+ .cancel-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #ff4444;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cancel-btn:hover {
+            transform: scale(1.05);
+            background: #cc0000;
+        }
+
+        .admin-dashboard {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+.auth-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .user-status {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ff88;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+            background: linear-gradient(45deg, #0f3460, #1a1a2e);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ff88, #00b4d8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #ccc;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #00ff88, #00b4d8);
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .features {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #00ff88;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            padding: 5rem 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #00ff88, #00b4d8);
+            color: #1a1a2e;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer {
+
+            text-align: center;
+            padding: 2rem;
+            background: #0f3460;
+position: relative; /* Remove any fixed positioning */
+    margin-top: auto; /* Push footer to bottom */
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">AICloude.com</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#services">Services</a>
+ <a href="#pricing">Pricing</a>
+  
+                <a href="#contact">Contact</a>
+                <span id="authLinks">
+                    <a href="#" onclick="showAuthForm('login')">Login</a>
+                    <a href="#" onclick="showAuthForm('register')">Register</a>
+                </span>
+
+                <span id="userMenu" style="display: none;">
+                    <a href="#" id="usernameDisplay"></a>
+                    <a href="#" onclick="logout()">Logout</a>
+                    <a href="/admin" id="adminLink" style="display: none;">Admin</a>
+                </span>
+
+            </div>
+        </nav>
+
+<!-- Add this to your header section -->
+<div id="headerDashboard" style="display: none;">
+    <div class="header-dashboard-content">
+        <div class="header-metric">
+            <i class="fas fa-database"></i>
+            <span id="headerStorage">0/2 GB</span>
+        </div>
+
+<div class="storage-meter-container">
+  <div class="storage-meter">
+    <div class="meter-bar" id="storageMeter"></div>
+  </div>
+  <div class="storage-info">
+    <span id="storageText">0/2 GB Used</span>
+   
+<!-- In the dashboard section -->
+<button id="storageUpgradeBtn" class="storage-upgrade-btn" onclick="showStoragePurchaseModal()">
+  + Buy 50GB ($1.50)
+</button>
+  </div>
+</div>
+
+        <div class="header-metric">
+            <i class="fas fa-microchip"></i>
+            <span id="headerCpu">0/100 Hours</span>
+        </div>
+        <div class="header-account">
+            <i class="fas fa-user"></i>
+            <span id="headerUsername"></span>
+        </div>
+    </div>
+</div>
+
+
+    </header>
+ 
+
+
+
+  <!-- Auth Overlay and Forms -->
+    <div class="auth-overlay" onclick="hideAuthForms()"></div>
+  <div class="auth-forms" id="loginForm">
+    <h2>Login</h2>
+    <div class="error-message" id="loginError"></div>
+    <form onsubmit="event.preventDefault(); login();">
+        <input type="email" id="loginEmail" placeholder="Email" required> <!-- Changed from username -->
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <div class="form-buttons">
+            <button type="submit" class="submit-btn">Login</button>
+            <button type="button" class="cancel-btn" onclick="hideAuthForms()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+ <div class="auth-forms" id="registerForm">
+    <h2>Register</h2>
+    <div class="error-message" id="registerError"></div>
+    <form onsubmit="event.preventDefault(); register();">
+        <input type="email" id="regEmail" placeholder="Email" required> <!-- Changed from username -->
+        <input type="password" id="regPassword" placeholder="Password" required>
+        <div class="form-buttons">
+            <button type="submit" class="submit-btn">Register</button>
+            <button type="button" class="cancel-btn" onclick="hideAuthForms()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+
+
+<!-- Add Verification Modal -->
+    <div class="auth-overlay" id="verificationOverlay" onclick="hideVerificationModal()"></div>
+    <div class="auth-forms" id="verificationModal">
+        <h2>Email Verification Required</h2>
+        <div class="error-message" id="verificationError"></div>
+        <form onsubmit="event.preventDefault(); verifyOTP();">
+            <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6" required>
+            <div class="form-buttons">
+                <button type="submit" class="submit-btn">Verify Email</button>
+                <button type="button" class="cancel-btn" onclick="hideVerificationModal()">Cancel</button>
+            </div>
+        </form>
+        <div id="resendOtpText">
+            Didn't receive OTP? <span onclick="resendOTP()">Resend OTP</span>
+        </div>
+    </div>
+
+
+
+
+   <section class="hero">
+    <div class="container">
+        <h1>Free AI-Optimized Cloud Storage for Secure File Management</h1>
+        <p>Store, manage, and access your files securely with AICloude's military-grade encrypted cloud storage. Get <strong>2GB free storage</strong> with AI-powered optimization, perfect for both personal use and business needs. Start your free trial today with no credit card required!</p>
+        <a href="#contact" class="cta-button">Start Your Free Trial</a>
+    </div>
+</section>
+
+<!-- User Dashboard -->
+<section id="dashboard" class="features">
+    <div class="container">
+        <h2>Your Cloud Dashboard</h2>
+        <div class="grid">
+          <!-- Add this in your dashboard section -->
+<div class="storage-container">
+  <h2>AI Storage</h2>
+  <div class="storage-meter">
+    <div class="meter-bar" id="storageMeter"></div>
+    <div class="meter-info">
+      <span id="storageText">0.00/2 GB</span>
+      <button id="buyStorageBtn" class="storage-upgrade-btn">
+        + Buy 50GB ($1.50)
+      </button>
+    </div>
+  </div>
+
+
+
+<!-- Add this inside the dashboard section -->
+<div id="uploadProgressContainer" style="display: none; margin: 1rem 0;">
+    <div id="uploadProgressBar" style="height: 10px; background: #444; border-radius: 5px;">
+        <div style="height: 100%; width: 0%; background: #00ff88; border-radius: 5px; transition: width 0.3s ease;"></div>
+    </div>
+    <div id="uploadStatus" style="margin-top: 0.5rem; font-size: 0.9rem;"></div>
+</div>
+</div>
+            <div class="feature-card">
+                <h3>vCPU Hours</h3>
+                <div class="usage-meter">
+                    <div class="meter-bar" id="cpuMeter"></div>
+                    <div class="meter-text" id="cpuText">0/100 Hours Used</div>
+                </div>
+            </div>
+            <div class="feature-card">
+                <h3>Account Details</h3>
+                <ul class="account-info">
+                    <li>Plan: <span id="planName">Free Tier</span></li>
+                    <li>Status: <span id="accountStatus">Active</span></li>
+                    <li>Cloud Provider: Aicloude</li>
+                </ul>
+            </div>
+        </div>
+
+<!-- Add to dashboard section -->
+<div class="dashboard-section">
+  <h3>File Storage</h3>
+  <div class="file-upload-container">
+    <input type="file" id="fileInput" multiple style="display: none;">
+   
+</div>
+
+<button class="cta-button" onclick="document.getElementById('fileInput').click()">
+      Upload Files
+    </button>
+    <div id="uploadError" class="error-message"></div>
+    <div id="fileList" class="file-grid"></div>
+  </div>
+</div>
+      
+    </div>
+</section>
+
+<!-- Add Payment Modal -->
+<div class="auth-overlay" id="paymentOverlay" onclick="hidePaymentModal()"></div>
+<div class="auth-forms" id="paymentModal">
+    <h2>Activate Your Free Tier</h2>
+    <div class="error-message" id="paymentError"></div>
+    <form onsubmit="event.preventDefault(); activateFreeTier();">
+        <div class="form-group">
+            <label>Credit Card Number</label>
+            <div id="cardElement" class="stripe-card-input"></div>
+        </div>
+
+
+        <div class="form-buttons">
+            <button type="submit" class="submit-btn">Activate Account</button>
+            <button type="button" class="cancel-btn" onclick="hidePaymentModal()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+<!-- Add after other modals -->
+<div class="auth-overlay" id="storageWarningOverlay" onclick="hideStorageWarning()"></div>
+<div class="auth-forms" id="storageWarningModal">
+    <h2>⚠️ Storage Limit Exceeded</h2>
+    <p>Your free 2GB storage limit has been reached!</p>
+    <div class="form-buttons">
+        <button class="submit-btn" onclick="showStoragePurchaseModal()">
+            Buy 50GB ($1.50)
+        </button>
+        <button class="cancel-btn" onclick="hideStorageWarning()">
+            Cancel
+        </button>
+    </div>
+</div>
+
+    <section id="features" class="features">
+        <div class="grid">
+            <div class="feature-card">
+                <i class="fas fa-brain"></i>
+                <h3>AI-Optimized Infrastructure</h3>
+                <p>Self-learning systems that automatically optimize resource allocation and workload distribution</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Military-Grade Security</h3>
+                <p>Advanced threat detection powered by machine learning algorithms</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-rocket"></i>
+                <h3>Lightning Fast Uploading</h3>
+                <p>Get your files in Aicloude Cloud within minutes</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="features">
+        <div class="grid">
+            <div class="feature-card">
+                <i class="fas fa-cloud"></i>
+                <h3>Smart Cloud Storage</h3>
+                <p>AI-managed storage with predictive capacity planning</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-robot"></i>
+                <h3>AIaaS Platform</h3>
+                <p>Pre-built AI models for vision, NLP, and predictive analytics</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-database"></i>
+                <h3>Auto-Scaling Databases</h3>
+                <p>Self-optimizing databases with real-time query analysis</p>
+            </div>
+        </div>
+    </section>
+
+
+  <!-- New Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2>Cloud Storage Pricing</h2>
+            <p class="section-subtitle">Plans Are For Both Individial and Business</p>
+            
+            <div class="pricing-grid">
+                <!-- Free Tier -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">
+                            <span class="currency">$0</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 2 GB AI-Optimized Storage</li>
+                        <li><i class="fas fa-check"></i> 100 vCPU Hours/Month</li>
+                        <li><i class="fas fa-check"></i> Basic AI Models</li>
+                        <li><i class="fas fa-check"></i> Community Support</li>
+                    </ul>
+                    <button class="cta-button" onclick="showAuthForm('register')">Get Started Free</button>
+                </div>
+
+                <!-- Most Popular -->
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">
+                            <span class="currency">$1.5</span>
+                            <span class="period">/50GB</span>
+                        </div>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 50GB AI-Optimized Storage</li>
+                        <li><i class="fas fa-check"></i> 500 vCPU Hours/Month</li>
+                        <li><i class="fas fa-check"></i> Advanced AI Models</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> Auto-Scaling Included</li>
+                    </ul>
+                    <button class="cta-button" onclick="showAuthForm('register')">Start Free Trial</button>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">Custom</span>
+                        </div>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Unlimited Storage</li>
+                        <li><i class="fas fa-check"></i> Dedicated AI Clusters</li>
+                        <li><i class="fas fa-check"></i> Custom AI Model Training</li>
+                        <li><i class="fas fa-check"></i> 24/7 Premium Support</li>
+                        <li><i class="fas fa-check"></i> SLA Guarantee</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Contact Sales</a>
+                </div>
+            </div>
+            
+            <div class="price-comparison">
+                <p>Compared to competitors:</p>
+                <div class="comparison-grid">
+                    <div>Feature</div>
+                    <div>AWS</div>
+                    <div>AICloude</div>
+                    <div>vCPU Cost</div>
+                    <div>$0.05/hr</div>
+                    <div>$0.03/hr</div>
+                    <div>AI Storage</div>
+                    <div>$0.023/GB</div>
+                    <div>$0.015/GB</div>
+                    <div>Support</div>
+                    <div>Extra</div>
+                    <div>Included</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ <!-- Storage Purchase Modal -->
+    <div class="auth-overlay" id="storageOverlay" onclick="hideStorageModal()"></div>
+    <div class="auth-forms" id="storageModal">
+        <h2>Purchase Additional Storage</h2>
+        <div class="error-message" id="storageError"></div>
+        <form onsubmit="event.preventDefault(); purchaseStorage();">
+            <div class="billing-section">
+                <h4>Billing Information (Required for Indian Payments)</h4>
+                
+                <div class="form-group">
+                    <label class="required">Full Name</label>
+                    <input type="text" id="billingName" placeholder="Name as on card" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Street Address</label>
+                    <input type="text" id="billingLine1" placeholder="123 Main Street" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">City</label>
+                    <input type="text" id="billingCity" placeholder="Mumbai" required>
+                </div>
+
+
+                
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label class="required">State</label>
+                        <input type="text" id="billingState" placeholder="Maharashtra" required>
+                    </div>
+                    <div class="form-group half-width">
+                        <label class="required">Postal Code</label>
+                        <input type="text" id="billingPostal" placeholder="400001" required>
+                    </div>
+                </div>
+            </div>
+            
+
+<div class="form-group">
+  <label class="required">Country</label>
+  <select id="billingCountry" required>
+    <option value="US">United States</option>
+    <option value="GB">United Kingdom</option>
+    <option value="CA">Canada</option>
+    <option value="AU">Australia</option>
+    <option value="IN">India</option>
+    <option value="JP">Japan</option>
+    <option value="EU">European Union</option>
+    <!-- Add more countries as needed -->
+  </select>
+</div>
+            <div class="form-group">
+                <label class="required">Credit Card Details</label>
+                <div id="storageCardElement" class="stripe-card-input"></div>
+            </div>
+            
+            <div class="form-buttons">
+                <button type="submit" class="submit-btn">Purchase 50GB (₹125)</button>
+                <button type="button" class="cancel-btn" onclick="hideStorageModal()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+
+   <section id="contact" class="contact-section">
+    <form class="contact-form">
+        <h2>Get Started Today</h2>
+        <div id="formError" class="error-message" style="display: none;"></div>
+        <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+            <textarea name="message" placeholder="How can we help you?" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+</section>
+
+ <script>
+    // Auth Functions
+    function showAuthForm(type) {
+        document.getElementById('loginForm').style.display = type === 'login' ? 'block' : 'none';
+        document.getElementById('registerForm').style.display = type === 'register' ? 'block' : 'none';
+        document.body.classList.add('auth-active');
+    }
+
+function hideAuthForms() {
+    document.body.classList.remove('auth-active');
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('registerForm').style.display = 'none';
+    
+    // Update these lines with the correct email fields
+    document.getElementById('loginEmail').value = ''; // Changed from loginUsername
+    document.getElementById('loginPassword').value = '';
+    document.getElementById('regEmail').value = '';    // Changed from regUsername
+    document.getElementById('regPassword').value = '';
+    
+    document.querySelectorAll('.error-message').forEach(el => {
+        el.style.display = 'none';
+    });
+}
+
+   // Stripe variables
+    let stripe;
+    let elements;
+    let storageCardElement = null;
+
+    
+   
+// Update the Stripe initialization
+async function initializeStripe() {
+  try {
+    if (!stripe) {
+      stripe = Stripe('pk_test_51RUPaNSCYRYeQYdtDfRLmOWmUhjt7TOk5svrS9wjhaFNnQar7ubRTAPbQFTAxucphFcw2eP5tqxuIsZ6iGcXBkVH00iRqK2VOR');
+      elements = stripe.elements();
+    }
+
+    if (!storageCardElement && elements) {
+      storageCardElement = elements.create('card', {
+        style: {
+          base: {
+            color: '#fff',
+            '::placeholder': {
+              color: '#888',
+            },
+            iconColor: '#00ff88',
+          },
+          invalid: {
+            color: '#ff4444',
+            iconColor: '#ff4444',
+          },
+        },
+        hidePostalCode: true
+      });
+      storageCardElement.mount('#storageCardElement');
+    }
+  } catch (error) {
+    console.error('Stripe initialization failed:', error);
+  }
+}
+
+
+function showStoragePurchaseModal() {
+  document.getElementById('storageOverlay').style.display = 'block';
+  document.getElementById('storageModal').style.display = 'block';
+}
+
+function hideStorageModal() {
+  document.getElementById('storageOverlay').style.display = 'none';
+  document.getElementById('storageModal').style.display = 'none';
+}
+
+
+ // Add Verification Functions
+        async function sendOTP() {
+            try {
+                const response = await fetch('/send-verification-otp', { 
+                    method: 'POST' 
+                });
+                if (!response.ok) throw new Error('Failed to send OTP');
+                alert('OTP sent to your registered email!');
+            } catch (error) {
+                document.getElementById('verificationError').textContent = error.message;
+            }
+        }
+
+        async function verifyOTP() {
+            const otp = document.getElementById('otpInput').value;
+            try {
+                const response = await fetch('/verify-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ otp })
+                });
+                
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error);
+                }
+                
+                hideVerificationModal();
+                alert('Email verified successfully!');
+                location.reload();
+            } catch (error) {
+                document.getElementById('verificationError').textContent = error.message;
+            }
+        }
+
+        function resendOTP() {
+            document.getElementById('verificationError').textContent = '';
+            sendOTP();
+        }
+
+        function showVerificationModal() {
+            document.getElementById('verificationOverlay').style.display = 'block';
+            document.getElementById('verificationModal').style.display = 'block';
+        }
+
+        function hideVerificationModal() {
+            document.getElementById('verificationOverlay').style.display = 'none';
+            document.getElementById('verificationModal').style.display = 'none';
+        }
+
+   // Replace both checkAuth functions with this single version
+async function checkAuth() {
+  try {
+    const response = await fetch('/api/user');
+    const data = await response.json();
+    
+    if (data.loggedIn) {
+      // Show verification modal if not verified
+      if (!data.user?.emailVerified) {
+        showVerificationModal();
+        await sendOTP();
+        document.querySelector('.cta-button').disabled = true;
+      }
+      
+      // Update UI elements
+      document.getElementById('authLinks').style.display = 'none';
+      document.getElementById('userMenu').style.display = 'flex';
+      document.getElementById('usernameDisplay').textContent = data.user.email;
+      document.getElementById('adminLink').style.display = data.user.isAdmin ? 'inline-block' : 'none';
+      document.getElementById('headerDashboard').style.display = 'block';
+      document.querySelector('.hero').style.marginTop = '100px';
+      
+      // Hide marketing sections
+      document.querySelector('.hero').style.display = 'none';
+      document.getElementById('features').style.display = 'none';
+      document.getElementById('services').style.display = 'none';
+      document.getElementById('pricing').style.display = 'none';
+      document.getElementById('contact').style.display = 'none';
+      
+      // Show dashboard
+      document.getElementById('dashboard').style.display = 'block';
+      
+      // Initialize dashboard components
+      await initializeStripe();
+      loadHeaderMetrics();
+      await loadDashboard();
+      await loadFiles();
+    }
+  } catch (error) {
+    console.error('Auth check failed:', error);
+  }
+}
+
+
+document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const formData = {
+    name: document.querySelector('input[name="name"]').value,
+    email: document.querySelector('input[name="email"]').value,
+    message: document.querySelector('textarea[name="message"]').value
+  };
+
+  try {
+    const response = await fetch('/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      alert('Message sent successfully!');
+      document.querySelector('.contact-form').reset();
+    } else {
+      throw new Error('Failed to send message');
+    }
+  } catch (error) {
+    document.getElementById('formError').textContent = error.message;
+    document.getElementById('formError').style.display = 'block';
+  }
+});
+   
+
+async function purchaseStorage() {
+  let billingDetails;
+  
+  try {
+    // Show loading state
+    const submitBtn = document.querySelector('#storageModal .submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Processing...';
+    document.getElementById('storageError').textContent = '';
+    
+    // Collect billing details
+    billingDetails = {
+      name: document.getElementById('billingName').value,
+      address: {
+        line1: document.getElementById('billingLine1').value,
+        city: document.getElementById('billingCity').value,
+        state: document.getElementById('billingState').value,
+        postal_code: document.getElementById('billingPostal').value,
+        country: document.getElementById('billingCountry').value
+      }
+    };
+    
+    // Validate billing details
+    const isIndia = billingDetails.address.country === 'IN';
+    
+    if (isIndia) {
+      // Strict validation for India
+      if (!billingDetails.name || !billingDetails.address.line1 || 
+          !billingDetails.address.city || !billingDetails.address.state || 
+          !billingDetails.address.postal_code) {
+        throw new Error('All billing fields are required for Indian payments');
+      }
+    } else {
+      // Basic validation for international
+      if (!billingDetails.name || !billingDetails.address.line1 || 
+          !billingDetails.address.city || !billingDetails.address.country) {
+        throw new Error('Name, address line, city and country are required');
+      }
+    }
+
+    // Create payment method with billing details
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: storageCardElement,
+      billing_details: billingDetails
+    });
+
+    if (error) throw new Error(error.message);
+
+    // Send payment request to server
+    const response = await fetch('/purchase-storage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        paymentMethodId: paymentMethod.id,
+        billingDetails: billingDetails
+      })
+    });
+
+    // Handle HTTP errors
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Payment failed');
+    }
+
+    const result = await response.json();
+
+    // Handle 3D Secure authentication
+    let paymentIntentId = result.payment_intent_id;
+    
+    if (result.requires_action) {
+      // Confirm the payment on the client
+      const { error: confirmError, paymentIntent } = await stripe.confirmCardPayment(
+        result.client_secret
+      );
+      
+      if (confirmError) {
+        throw new Error(`Authentication failed: ${confirmError.message}`);
+      }
+      
+      // Get the final payment intent ID
+      paymentIntentId = paymentIntent.id;
+    }
+
+    // Confirm payment with server
+    const confirmResponse = await fetch('/confirm-payment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        paymentIntentId: paymentIntentId 
+      })
+    });
+    
+    if (!confirmResponse.ok) {
+      const errorData = await confirmResponse.json();
+      throw new Error(errorData.error || 'Payment confirmation failed');
+    }
+
+    // Success handling
+    hideStorageModal();
+    
+    // Show success message in local currency
+    if (isIndia) {
+      alert('✅ Storage purchased successfully! 50GB added to your account (₹125)');
+    } else {
+      // Convert to local currency - this is just an example
+      // In real app, you would use the actual currency from the payment intent
+      const currencySymbol = getCurrencySymbol(billingDetails.address.country);
+      alert(`✅ Storage purchased successfully! 50GB added to your account (${currencySymbol}1.50)`);
+    }
+    
+    // Update UI
+    await loadDashboard();
+    await loadFiles();
+    
+  } catch (error) {
+    console.error('Full purchase error:', error);
+    const errorElement = document.getElementById('storageError');
+    
+    // Special handling for Indian payment errors
+    if (error.message.includes('INR') || 
+        error.message.includes('India') || 
+        error.message.includes('Indian')) {
+      errorElement.textContent = 'For Indian accounts: ' + error.message;
+    } else {
+      errorElement.textContent = error.message;
+    }
+    
+    errorElement.style.display = 'block';
+    
+  } finally {
+    // Reset button state
+    const submitBtn = document.querySelector('#storageModal .submit-btn');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      
+      // Update button text based on selected country
+      const country = document.getElementById('billingCountry').value;
+      if (country === 'IN') {
+        submitBtn.textContent = 'Purchase 50GB (₹125)';
+      } else {
+        submitBtn.textContent = 'Purchase 50GB ($1.50)';
+      }
+    }
+  }
+}
+
+// Helper function to get currency symbol (simplified)
+function getCurrencySymbol(countryCode) {
+  const currencies = {
+    'US': '$',    // United States
+    'GB': '£',    // United Kingdom
+    'EU': '€',    // European Union
+    'JP': '¥',    // Japan
+    'CA': 'C$',   // Canada
+    'AU': 'A$',   // Australia
+    'IN': '₹'     // India
+  };
+  
+  return currencies[countryCode] || '$';
+}
+
+// Update button text when country changes
+document.getElementById('billingCountry').addEventListener('change', function() {
+  const submitBtn = document.querySelector('#storageModal .submit-btn');
+  if (!submitBtn) return;
+  
+  if (this.value === 'IN') {
+    submitBtn.textContent = 'Purchase 50GB (₹125)';
+  } else {
+    submitBtn.textContent = 'Purchase 50GB ($1.50)';
+  }
+});
+  
+
+
+
+async function completePurchase() {
+  hideStorageModal();
+  alert('Storage purchased successfully!');
+  await loadDashboard();
+  await loadFiles();
+}
+    // Update loadDashboard function
+
+
+// In loadDashboard function
+async function loadDashboard() {
+  try {
+    const userResponse = await fetch('/api/user');
+    const { user: userData } = await userResponse.json();
+    const resourcesResponse = await fetch('/user-resources');
+    const resources = await resourcesResponse.json();
+
+    // Calculate storage limit
+    const baseStorage = userData.plan === 'free' ? 2 : 
+                       userData.plan === 'pro' ? 1024 : 2; // Fallback to 2GB
+    const purchasedStorage = userData.purchasedStorage || 0;
+    const storageLimit = baseStorage + purchasedStorage;
+
+    // Update UI
+    document.getElementById('storageMeter').style.width = 
+      `${(resources.storageUsed / storageLimit) * 100}%`;
+    document.getElementById('storageText').textContent = 
+      `${resources.storageUsed.toFixed(2)}/${storageLimit} GB Used`;
+  } catch (error) {
+    console.error('Dashboard load error:', error);
+  }
+}
+
+// Add to script section
+async function loadFiles() {
+  try {
+    const response = await fetch('/files');
+    if (!response.ok) throw new Error('Failed to fetch files');
+    
+    const files = await response.json();
+    const fileList = document.getElementById('fileList');
+    fileList.innerHTML = '';
+    
+    files.forEach(file => {
+      const fileCard = document.createElement('div');
+      fileCard.className = 'file-card';
+      fileCard.innerHTML = `
+        <div>
+          <div>${file.name}</div>
+          <small>${file.size.toFixed(2)} GB</small>
+          <small>Uploaded: ${new Date(file.uploadedAt).toLocaleDateString()}</small>
+        </div>
+        <div class="file-actions">
+          <button class="download-btn" onclick="downloadFile('${file.url}')">
+            <i class="fas fa-download"></i>
+          </button>
+          <button class="delete-btn" onclick="deleteFile('${file.id}')">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      `;
+      fileList.appendChild(fileCard);
+    });
+  } catch (error) {
+    console.error('File load error:', error);
+    document.getElementById('uploadError').textContent = error.message;
+    document.getElementById('uploadError').style.display = 'block';
+  }
+}
+
+function downloadFile(url) {
+    // Create a temporary anchor element
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = ''; // Preserve original filename
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+document.getElementById('fileInput').addEventListener('change', async (e) => {
+    try {
+        // Check verification status first
+        const userResponse = await fetch('/api/user');
+        const userData = await userResponse.json();
+        
+        if (!userData.user?.emailVerified) {
+            document.getElementById('uploadError').textContent = 'Email verification required to upload files';
+            document.getElementById('uploadError').style.display = 'block';
+            e.target.value = '';
+            return;
+        }
+
+        const files = e.target.files;
+        const uploadError = document.getElementById('uploadError');
+        uploadError.style.display = 'none';
+        
+        // Process each file individually
+        for (const file of files) {
+            // Show progress container
+            const progressContainer = document.getElementById('uploadProgressContainer');
+            const progressBar = progressContainer.querySelector('#uploadProgressBar div');
+            const uploadStatus = document.getElementById('uploadStatus');
+            progressContainer.style.display = 'block';
+            uploadStatus.textContent = `Uploading ${file.name}... 0%`;
+
+            // Create FormData and setup XHR
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            const xhr = new XMLHttpRequest();
+            
+            // Progress handler
+            xhr.upload.addEventListener('progress', (event) => {
+                if (event.lengthComputable) {
+                    const percent = Math.round((event.loaded / event.total) * 100);
+                    progressBar.style.width = `${percent}%`;
+                    uploadStatus.textContent = `Uploading ${file.name}... ${percent}%`;
+                }
+            });
+
+            // Load handler
+            xhr.addEventListener('load', async () => {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        const responseData = JSON.parse(xhr.responseText);
+                        if (responseData.error === 'Your storage limit has been exceeded') {
+                            showStorageWarning();
+                            progressContainer.style.display = 'none';
+                            return;
+                        }
+
+                        progressBar.style.width = '100%';
+                        uploadStatus.textContent = `Upload complete: ${file.name}`;
+                        
+                        // Update UI after short delay
+                        setTimeout(async () => {
+                            progressContainer.style.display = 'none';
+                            await loadFiles();
+                            await updateStorageDisplay();
+                        }, 2000);
+
+                    } catch (parseError) {
+                        console.error('Response parse error:', parseError);
+                        uploadError.textContent = 'Failed to process upload response';
+                        uploadError.style.display = 'block';
+                    }
+                } else {
+                    try {
+                        const errorData = JSON.parse(xhr.responseText);
+                        if (errorData.requiresUpgrade) {
+                            showStorageWarning();
+                        } else {
+                            throw new Error(errorData.error || 'Upload failed');
+                        }
+                    } catch {
+                        throw new Error('Upload failed');
+                    }
+                }
+            });
+
+            // Error handler
+            xhr.addEventListener('error', () => {
+                progressContainer.style.display = 'none';
+                uploadError.textContent = 'Network error - upload failed';
+                uploadError.style.display = 'block';
+            });
+
+            // Abort handler
+            xhr.addEventListener('abort', () => {
+                progressContainer.style.display = 'none';
+                uploadStatus.textContent = 'Upload cancelled';
+            });
+
+            // Start upload
+            xhr.open('POST', '/upload', true);
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.send(formData);
+        }
+
+        // Reset file input after processing
+        e.target.value = '';
+
+    } catch (error) {
+        console.error('Upload initialization error:', error);
+        document.getElementById('uploadError').textContent = 
+            error.message || 'Failed to start upload process';
+        document.getElementById('uploadError').style.display = 'block';
+        e.target.value = '';
+    }
+});
+async function deleteFile(fileId) {
+  if (!confirm('Are you sure you want to delete this file?')) return;
+  
+  try {
+    const response = await fetch(`/files/${fileId}`, {
+      method: 'DELETE'
+    });
+    
+    if (!response.ok) throw new Error('Delete failed');
+    
+    await loadFiles();
+    updateStorageDisplay();
+  } catch (error) {
+    document.getElementById('uploadError').textContent = error.message;
+    document.getElementById('uploadError').style.display = 'block';
+  }
+}
+
+function showUpgradePrompt() {
+    document.getElementById('storageWarningOverlay').style.display = 'block';
+    document.getElementById('storageWarningModal').style.display = 'block';
+}
+
+function hideStorageWarning() {
+    document.getElementById('storageWarningOverlay').style.display = 'none';
+    document.getElementById('storageWarningModal').style.display = 'none';
+}
+
+// Update storage display function
+async function updateStorageDisplay() {
+  const response = await fetch('/user-resources');
+  const resources = await response.json();
+  const userResponse = await fetch('/api/user');
+  const userData = await userResponse.json();
+  
+ // With the correct calculation:
+const baseStorage = userData.user.plan === 'free' ? 2 : 
+                   userData.user.plan === 'pro' ? 1024 : 0;
+const purchasedStorage = userData.user.purchasedStorage || 0;
+const storageLimit = baseStorage + purchasedStorage;
+  
+  document.getElementById('storageMeter').style.width = 
+    `${(resources.storageUsed / storageLimit) * 100}%`;
+  document.getElementById('storageText').textContent = 
+    `${resources.storageUsed.toFixed(2)}/${storageLimit} GB Used`;
+}
+
+
+
+    
+
+
+
+// Add this function
+ async function loadHeaderMetrics() {
+  try {
+    const userResponse = await fetch('/api/user');
+    const responseData = await userResponse.json();
+    
+    if (!responseData.loggedIn || !responseData.user) return;
+
+    const userData = responseData.user;
+    const resourcesResponse = await fetch('/user-resources');
+    const resources = await resourcesResponse.json();
+
+    // Corrected storage calculation
+    const baseStorage = userData.plan === 'free' ? 2 : 
+                       userData.plan === 'pro' ? 1024 : 2;
+    const purchasedStorage = userData.purchasedStorage || 0;
+    const totalStorage = baseStorage + purchasedStorage;
+
+    document.getElementById('headerStorage').textContent = 
+      `${resources.storageUsed.toFixed(2)}/${totalStorage} GB`;
+      
+    // Refresh every 30 seconds
+    setTimeout(loadHeaderMetrics, 30000);
+  } catch (error) {
+    console.error('Failed to load header metrics:', error);
+  }
+}
+
+    async function login() {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    const errorElement = document.getElementById('loginError');
+
+    try {
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+
+        const result = await response.json();
+        
+        if (!response.ok) {
+            errorElement.textContent = result.error || 'Invalid email or password';
+            errorElement.style.display = 'block';
+            return;
+        }
+
+        location.reload(); // Refresh to update session state
+        
+    } catch (error) {
+        errorElement.textContent = 'Network error - check your connection';
+        errorElement.style.display = 'block';
+        console.error('Login error:', error);
+    }
+}
+    async function register() {
+    const email = document.getElementById('regEmail').value;
+    const password = document.getElementById('regPassword').value;
+    const errorElement = document.getElementById('registerError');
+
+    try {
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+
+        const result = await response.json();
+        
+        if (!response.ok) {
+            errorElement.textContent = result.error || 'Registration failed';
+            errorElement.style.display = 'block';
+            return;
+        }
+
+        alert('Registration successful! Please login.');
+        hideAuthForms();
+    } catch (error) {
+        // In the register() function, update the error display:
+errorElement.textContent = result.error || 'Registration failed';
+        errorElement.style.display = 'block';
+        console.error('Registration error:', error);
+    }
+}
+     // Update logout function
+    async function logout() {
+        try {
+            await fetch('/logout', { method: 'POST' });
+            document.getElementById('headerDashboard').style.display = 'none';
+            document.querySelector('.hero').style.marginTop = '0';
+            location.reload();
+        } catch (error) {
+            console.error('Logout failed:', error);
+        }
+    }
+
+    // Initial check
+  checkAuth();
+</script>
+
+
+
+
+    <footer>
+        <p>&copy; 2025 Aicloude. All rights reserved.</p>
+<a href="/privacy.html" target="_blank">Privacy</a>
+  <a href="/terms.html" target="_blank">Terms</a>
+    </footer>
+
+
+</body>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
